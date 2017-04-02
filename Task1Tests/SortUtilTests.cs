@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using NUnit.Framework;
 using Task1Logic;
-using System.Diagnostics;
 
 
 namespace Task1Tests
@@ -138,8 +134,7 @@ namespace Task1Tests
 
             CollectionAssert.AreEqual(expectedArray, array);
         }
+
         #endregion
-
-
     }
 }
