@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
-
+using System.Linq;
+using System.Text;
 
 namespace Task2Logic
 {
@@ -38,25 +39,22 @@ namespace Task2Logic
             bool isNegative = false;
             const string digits = "0123456789ABCDEF";
 
-            if (number == 0)
-                return "0x0";
             if (number < 0)
             {
                 isNegative = true;
                 number = Math.Abs(number);
             }
 
-            string hex = string.Empty;
-            while (number > 0)
+            var sb = new StringBuilder();
+
+            do
             {
-                int digit = number % 16;
-                hex = digits[digit] + hex;
-                number = number / 16;
-            }
-            hex = "0x" + hex;
-            if (isNegative)
-                hex = "-" + hex;
-            return hex;
+                sb.Append(digits[number % 16]);
+                number /= 16;
+
+            } while (number != 0);
+
+            return (isNegative ? "-" : "") + "0x" + new string(sb.ToString().Reverse().ToArray());
         }
     }
 }

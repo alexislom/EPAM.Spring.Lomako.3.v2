@@ -14,6 +14,8 @@ namespace Task2Tests
         [TestCase(0, Result = "0")]
         [TestCase(4, Result = "4")]
         [TestCase(27, Result = "1B")]
+        [TestCase(int.MaxValue, Result = "7FFFFFFF")]
+        [TestCase(int.MinValue, Result = "80000000")]
         public string ToHexStringTest(int number)
         {
             return string.Format(new HexFormatter(), "{0:X}", number);
