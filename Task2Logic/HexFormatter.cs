@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 
 namespace Task2Logic
 {
@@ -18,7 +19,7 @@ namespace Task2Logic
 
         public object GetFormat(Type formatType)
         {
-            return formatType == typeof(ICustomFormatter) ? this : null;
+            return formatType == typeof(ICustomFormatter) ? this : Thread.CurrentThread.CurrentCulture.GetFormat(formatType); 
         }
 
         public string Format(string format, object arg, IFormatProvider formatProvider)
